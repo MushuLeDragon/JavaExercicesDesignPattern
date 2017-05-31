@@ -6,6 +6,7 @@
 package exercicesdesignpattern.composite;
 
 import exercicesdesignpattern.composite.arbre.*;
+import exercicesdesignpattern.composite.calcul.*;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,8 @@ public class Composite {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        arbre();
+        //arbre();
+        calcul();
     }
 
     private static void arbre() {
@@ -36,5 +38,31 @@ public class Composite {
 
         Composant arbre = new Composant(branches);
         arbre.dessine();
+    }
+
+    private static void calcul() {
+        Nombre exp1 = new Nombre(123);
+        Addition exp2 = new Addition(
+                new Nombre(33),
+                new Nombre(66)
+        );
+
+        Addition exp3 = new Addition(
+                new Nombre(99),
+                new Addition(
+                        new Nombre(33),
+                        new Nombre(66)
+                )
+        );
+        
+//        System.out.println(exp1.interpreter());
+//        System.out.println(exp2.interpreter());
+//        System.out.println(exp3.interpreter());
+        
+        Visiteur visiteur1 = new VisiteurString();
+        
+        System.out.println(visiteur1.visiteNombre(exp1));
+        System.out.println(visiteur1.visiteAddition(exp2));
+        System.out.println(visiteur1.visiteAddition(exp3));
     }
 }
