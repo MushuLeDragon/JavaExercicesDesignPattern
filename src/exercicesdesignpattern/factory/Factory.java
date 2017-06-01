@@ -20,7 +20,7 @@ public class Factory {
     public static void main(String[] args) {
         robot();
     }
-
+    
     private static void robot() {
         FabriqueARobot fabrique = new FabriqueARobot();
         IRobot robotTueur = fabrique.fabriqueUnRobot("tueur");
