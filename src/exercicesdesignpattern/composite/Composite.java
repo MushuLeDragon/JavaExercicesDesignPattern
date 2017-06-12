@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Thomas Kint
+ * 
  */
 public class Composite {
 
